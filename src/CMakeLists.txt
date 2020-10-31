@@ -233,3 +233,4 @@ endif ()
     DESTINATION include/freetype2/freetype/config
     )
 
+set_property(TARGET freetype PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/include/)
