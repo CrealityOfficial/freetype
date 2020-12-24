@@ -7,6 +7,21 @@
 
 #include "zutil.h"
 
+#ifdef DEBUG
+#include <stdlib.h>
+#  ifndef verbose
+#    define verbose 0
+#  endif
+int z_verbose = verbose;
+
+void z_error(m)
+char* m;
+{
+    fprintf(stderr, "%s\n", m);
+    exit(1);
+}
+#endif
+
 #ifndef STDC
 extern void exit OF((int));
 #endif
