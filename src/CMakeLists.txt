@@ -187,7 +187,8 @@ endif ()
 set(Defs freetype_EXPORTS)
 __add_real_target(freetype dll 
 		SOURCE ${PUBLIC_HEADERS} ${PUBLIC_CONFIG_HEADERS} ${PRIVATE_HEADERS} ${BASE_SRCS}
-		DEF ${Defs})
+		DEF ${Defs}
+		INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 
 if (NOT CMAKE_VERSION VERSION_LESS 2.8.12)
   target_include_directories(freetype
@@ -221,6 +222,7 @@ endif ()
 
 # Installations
 # Note the trailing slash in the argument to the `DIRECTORY' directive
+if(CC_INSTALL_FREETYPE)
   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
     DESTINATION include/freetype2
     PATTERN "internal" EXCLUDE
@@ -232,5 +234,4 @@ endif ()
     ${CMAKE_CURRENT_BINARY_DIR}/include/freetype/config/ftoption.h
     DESTINATION include/freetype2/freetype/config
     )
-
-set_property(TARGET freetype PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/include/)
+endif()
