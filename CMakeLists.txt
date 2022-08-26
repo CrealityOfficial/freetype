@@ -224,7 +224,7 @@ endif ()
 # Note the trailing slash in the argument to the `DIRECTORY' directive
 if(CC_INSTALL_FREETYPE)
   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
-    DESTINATION include/freetype2
+    DESTINATION include
     PATTERN "internal" EXCLUDE
     PATTERN "ftconfig.h" EXCLUDE
     PATTERN "ftoption.h" EXCLUDE
@@ -232,6 +232,6 @@ if(CC_INSTALL_FREETYPE)
   install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/include/freetype/config/ftconfig.h
     ${CMAKE_CURRENT_BINARY_DIR}/include/freetype/config/ftoption.h
-    DESTINATION include/freetype2/freetype/config
+    DESTINATION include/freetype/config
     )
 endif()
